@@ -1,0 +1,96 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+    <title>Manzur's Resume</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:500,200,700" rel="stylesheet">
+    <style>
+        a:hover{background-color: #0b65c1;}h1,h2,h3,h4,h5,h6,p,a,li,span{font-family:'Raleway',sans-serif; line-height: 120%;}.resume{background-color:#1f1f1f;min-height:100vh}.resume .main{height:100%;width:700px;background-color:#fff;padding:0 25px;margin:0 auto}.resume .main .header{border-bottom:2px solid #ddd}.resume .main .header .page-title-container{margin:0 auto;text-align:center;}.resume .main .header .page-title{font-size:26pt;display:inline}.resume .main .header .page-title-first{font-weight:400}.resume .main .header .page-title-last{font-weight:400}.resume .main .header .header-icons{padding-bottom:3px;text-align:center}.resume .main .header .header-icons .page-subhead{margin:1rem 14px;display:inline}.resume .main .header .fa{padding-right:10px}.resume .main .indented{padding-left:40px}.resume .main .category-row{padding-bottom:2px}.resume .main .category-row .category{margin-right:10px;padding-top:5px;padding-left:5px;padding-right:10px;border-bottom:1px solid #ddd;border-right:1px solid #ddd}.resume .main .category-row .category-row-title{margin:.3rem 0 .2rem}.resume .main .category-row .category-title,.resume .main .category-row .category-subtitle{display:table-row-group;line-height: 100%;font-size:12px;padding-top:10px;margin-top:10px;margin-bottom:5px;font-weight: 500} .resume .main .category-row .category-title,.resume .main .category-row .category-date {display: inline;margin-top: 10px;margin-bottom: 5px;font-weight: 600}.resume .main .category-row .category-bullets{margin-top:5px;margin-bottom:10px;}.resume .main .category-row p,.resume .main .category-row li{font-size:12px}sidebar-category:last-of-type .category{border-bottom:0!important;padding-bottom:0!important;margin-bottom:0!important}category:last-of-type category-item:last-of-type .category{border-bottom:0!important;padding-bottom:0!important;margin-bottom:0!important}
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+    <script>angular.module("Resume",["ngMaterial"]).component("resume",{transclude:true,template:'<div class="resume">\n    <section class="main" ng-transclude></section>\n  </div>'}).component("resumeHeading",{controllerAs:"r",bindings:{firstName:"@",lastName:"@",address:"@",website:"@",phone:"@",email:"@",github:"@",linkedin:"@"},template:'<div class="header">\n    <div class="page-title-container">\n      <h1 class="page-title page-title-first">{{r.firstName}}</h1>\n      <h1 class="page-title page-title-last">{{r.lastName}}</h1>\n    </div>\n    <div class="header-icons">\n      <span ng-if="r.address" class="md-subhead page-subhead"><i class="fa fa-lg fa-home"></i>{{r.address}}</br></span>\n      <span ng-if="r.phone" class="md-subhead page-subhead"><i class="fa fa-lg fa-phone"></i>{{r.phone}}</span>\n      <span ng-if="r.email" class="md-subhead page-subhead"><i class="fa fa-md fa-envelope"></i>{{r.email}}</span>\n      <span ng-if="r.linkedin" class="md-subhead page-subhead"><i class="fa fa-lg fa-linkedin-square"></i><a style="color: black; text-decoration:none;" href="https://www.linkedin.com/in/manzur-mulk/">{{r.linkedin}}</a></span>\n      <span ng-if="r.github" class="md-subhead page-subhead"><i class="fa fa-lg fa-github"></i><a style="color: black; text-decoration:none;}" href="https://github.com/mmulk2">{{r.github}}</a></span>\n    </div>\n  </div>'}).component("resumeBody",{transclude:true,template:'<div layout="row" ng-transclude></div>'}).component("resumeColumn",{transclude:true,template:"<div ng-transclude></div>"}).component("sidebarCategory",{controllerAs:"r",bindings:{name:"@"},transclude:true,template:'<div flex="" class="category-row">\n    <div class="category">\n      <h5 class="category-row-title">{{r.name}}</h5>\n      <ng-transclude></ng-transclude>\n    </div>\n  </div>'}).component("category",{controllerAs:"r",bindings:{name:"@"},transclude:true,template:'<div flex="" class="category-row">\n    <h4 class="category-row-title">{{r.name}}</h4>\n    <ng-transclude></ng-transclude>\n  </div>'}).component("categoryItem",{controllerAs:"r",bindings:{title:"@",subtitle:"@",date:'@'},transclude:true,template:'<div class="category">\n      <h5 class="category-title md-body-2">{{r.title}}</h5>&nbsp;\n      <h5 class="category-subtitle md-caption">{{r.subtitle}}</h5>\n      <h5 class="category-date md-caption">{{r.date}}</h5>\n      <ul class="category-bullets" ng-transclude></ul>\n  </div>'});
+    </script>
+    
+    </head><body ng-app="Resume" ng-cloak="">
+        <resume>
+            <resume-heading first-name="Manzur" last-name="Mulk" linkedin="Manzur Mulk" github="mmulk" email="manzurmmulk@gmail.com" phone="(519) 319-6471">
+            </resume-heading>  
+            <resume-body>
+                <resume-column flex="20">
+                    <sidebar-category name="Education">
+                        <p  style="     margin-top: 10px;  margin-bottom: 10px; "><b>Western University</b>
+                            Major Computer Science & <br>Minor Biology </p>
+                        <p  style="     margin-top: 10px;  margin-bottom: 10px; ">Graduated May 2019</p>
+                    </sidebar-category>
+                    <sidebar-category name="Languages">
+                        <p  style="     margin-top: 10px;  margin-bottom: 10px; "><b>JavaScript, C++, Java, HTML5, CSS</b> Python,  MATLAB, C</p>
+                    </sidebar-category>
+                    <sidebar-category name="Tools & Frameworks">
+                        <p  style="     margin-top: 10px;  margin-bottom: 10px; "><b> Angular, Typescript, Node.js, Github, React,</b> BitBucket, JIRA, Jenkins</p>
+                    </sidebar-category>
+                    <sidebar-category name="Database">
+                        <p  style="     margin-top: 10px;  margin-bottom: 10px; "><b>MySQL</b></p>
+                    </sidebar-category>
+                    <sidebar-category name="Scripting">
+                        <p  style="     margin-top: 10px;  margin-bottom: 10px; "><b>XML, Powershell, Batch</b></p>
+                    </sidebar-category>
+                    <sidebar-category name="Achievements">
+                        <p  style="     margin-top: 10px;  margin-bottom: 10px; ">Schulich School of Medicine & Dentistry and Computer Science Department <a style="color: black; text-decoration:none;" href="https://www.schulich.uwo.ca/informationservices/about_us/information-services-annual-report-2017-2.pdf"><br><br>Click Here</a></p>
+                    </sidebar-category>
+                    <sidebar-category name="Hobbies & Interests">
+                        <p style="margin-top: 10px;  margin-bottom: 10px;">Cooking</br>Basketball</br>Gym</p>
+                    </sidebar-category>
+                </resume-column>
+                <resume-column flex="80">
+                    <category>
+                        <category-item>
+                            <p  style=" margin-left: -40px; margin-bottom: 5px; margin-top: -25px; font-size:12px;">Experienced Software Engineer with experiences in frameworks such as <b>Angular, TypeScript, Node.js, React</b> and varying programming languages such as <b>C++</b>and <b>JavaScript</b> in the financial technology industry.</p>
+                            <!-- <p  style=" margin-left: 40px; margin-bottom: 5px; margin-top: 5px; font-size:12px;">Experienced Software Engineer and Web Developer, with experiences in JavaScript, Angular, TypeScript and C++.</p> -->
+                        </category-item>
+                    </category>
+                    <category name="Work Experience">
+                        <!-- <category-item title="Diebold Nixdorf - Software Engineer II" subtitle="Sep 2018 - Current"> -->
+                        <category-item title="Diebold Nixdorf - Software Engineer | JavaScript, Angular, React, Node.js, TypeScript, C++, Jenkins, Git, Scripting (Batch)" subtitle="Sep 2018 - Current">
+                            <p  style="     margin-left: -40px;  margin-bottom: 5px; margin-top: 5px; ">Working as a Senior Software Engineer for ATM Banking application with JavaScript, C++, React, Angular, Node.js and TypeScript</p>
+                            <li>Led implementation of a multi-denomination feature for ATM vendors (DN Series, Nexgen, Diebold, etc.) using JavaScript, React and Angular.</li>
+                            <li>Enabled users to select multiple denominations based on the least number of notes or custom selection, resulting in <b>3 seconds reduced transaction time</b>, and improved cash management for banking institutions.</li>
+                            <li>Utilized Angular Router to manage application routing and transitions, ensuring that users can easily move between different banking functionalities with smooth animations and minimal latency.</li>
+                            <li>Leveraged React's component-based architecture to design modular and reusable components, simplifying the addition of new screens and <b>reduced development time by 20%.</b></li>
+                            <li>Provided effective leadership to a team of 3 developers in an agile environment, utilizing C++, HTML, JavaScript, CSS, React, Angular, TypeScript, and XML, resulting in successful project delivery while supporting team members' growth and collaboration.</li>
+                            <li>Implemented a robust state management system using Angular's built-in mechanisms, such as routing, enabling seamless navigation between screens.</li>
+                            <li>Utilized TypeScript's enhanced code readability and maintainability, allowing developers to implement features faster, leading to a <b>15% decrease</b> in development time for new functionalities.</li>
+                        </category-item>
+                        <category-item title="Diebold Nixdorf - QA Analyst Intern | Manual & Automated Testing, Scripting (Batch), Jira " subtitle="May 2017 - August 2018">
+                            <p  style="     margin-left: -40px;  margin-bottom: 5px; margin-top: 5px; ">Worked as a Quality Assurance Analyst intern for ATM Banking application: Conducted manual tests, automated installations via Batch Script (Windows OS), and tracked defects using Jira.</p>
+                            <li>Conducted comprehensive manual testing - Hardware & Software Testing including smoke testing, regression testing, functional testing, and black box testing on ATM software to ensure product quality and functionality.</li>
+                            <li>Played an integral role in ensuring the release of a high-quality software version by identifying <b>2</b> to <b>5</b> critical defects during regression testing, preventing their occurrence in the production environment.</li> 
+                            <li>Efficiently automated routine tasks using scripting, reducing testing time by <b>45 minutes</b> during ATM installation and allowing the team to allocate more resources towards exploratory testing.</li>
+                        </category-item>
+                    </category>
+                    <!-- <category name="Volunteer Experience">
+                        <category-item subtitle="First Year Representative: Sep 2014 – April 2015" title="Heart and Stroke Foundation">
+                            <li>Provided budget and logistics for events</li>
+                            <li>Organized events</li>
+                        </category-item>
+                        <category-item subtitle="Administrative Assistant: Dec 2010 – April 2011" title="VON Community Health Service">
+                            <li>Organized and handled medical data using Microsoft Office</li>
+                            <li>Schedule on-coming appointment and confirm with patients prior to appointment date</li>
+                        </category-item>
+                    </category> -->
+                    <category name="Projects ">
+                        <category-item subtitle="Project Lead: Oct 2016 - Dec 2016" title="Peach Galaxy Star - C++, Maven, Git">
+                            <li>Developed a Staff Tracking & Activity Reporting application for the Schulich School of Medicine & Dentistry</li>
+                            <li>Developed features that locate users based on their eductation, years of experience, program, etc.</li>
+                        </category-item>
+                        <category-item subtitle="Back-end Developer: Feb 2016 – Jun 2016" title="FitBit – Java, FitBit API, BitBucket, OAuth 2.0, Jira, Confluence, JUnit, Swing, Maven">
+                            <li>Developed a desktop application, which integrates with Fitbit products and provides activity statistics</li>
+                        </category-item>
+                    </category>
+                </resume-column>
+            </resume-body>
+        </resume>
+    </body></html>
